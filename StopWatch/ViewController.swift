@@ -65,6 +65,11 @@ class ViewController: UIViewController {
             misec = 0
         }
 
+        if sec == 60 {
+            min += 1
+            sec = 0
+        }
+
         updateDisplay()
     }
 
