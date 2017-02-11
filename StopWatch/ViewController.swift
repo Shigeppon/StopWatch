@@ -10,26 +10,40 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var display: UILabel!
-
+    let buttonTextStart = "Start"
+    let buttonTextStop = "Stop"
     var timer: Timer!
-    var second: Int = 0
+    var min: Int = 0
+    var sec: Int = 0
+    var misec: Int = 0
+    
+    @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+
+    @IBAction func Start(_ sender: Any) {
+        if let buttonTitle = startButton.titleLabel?.text {
+            switch buttonTitle {
+                case buttonTextStart:
+                    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+                    timer.fire()
+
+                    startButton.setTitle(buttonTextStop, for: .normal)
+            default: break
+            }
+        }
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        display.text = "00:00:00"
+        updateDisplay()
+        startButton.setTitle(buttonTextStart, for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-        timer.fire()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,8 +53,17 @@ class ViewController: UIViewController {
     }
 
     func update() {
-        second += 1
-        display.text = "00:00:" + String(second)
+        misec += 1
+
+        if misec == 60 {
+            sec += 1
+            misec = 0
+        }
+        updateDisplay()
+    }
+
+    func updateDisplay() {
+        display.text = String(format: "%02d:%02d:%02d", min, sec, misec)
     }
 }
 
