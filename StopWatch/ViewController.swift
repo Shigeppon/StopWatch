@@ -20,6 +20,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var startButton: UIButton!
 
+    @IBAction func resetButton(_ sender: Any) {
+        min = 0
+        sec = 0
+        misec = 0
+
+        updateDisplay()
+    }
+
     @IBAction func Start(_ sender: Any) {
         switch startButton.titleLabel?.text {
         case .some(buttonTextStart):
