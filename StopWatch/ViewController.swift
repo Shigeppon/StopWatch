@@ -70,6 +70,10 @@ class ViewController: UIViewController {
             sec = 0
         }
 
+        if min == 60 {
+            min = 0
+        }
+
         updateDisplay()
     }
 

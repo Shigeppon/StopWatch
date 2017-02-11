@@ -46,6 +46,9 @@
                                     <constraint firstAttribute="height" constant="30" id="SQo-Zf-daC"/>
                                 </constraints>
                                 <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="K0F-HO-gbO" eventType="touchUpInside" id="2sC-fj-oen"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHn-OC-jUD">
                                 <rect key="frame" x="218" y="85" width="34" height="30"/>
