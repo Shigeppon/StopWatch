@@ -53,10 +53,11 @@ class ViewController: UIViewController {
     func update() {
         misec += 1
 
-        if misec == 60 {
+        if misec == 100 {
             sec += 1
             misec = 0
         }
+
         updateDisplay()
     }
 
