@@ -21,15 +21,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
 
     @IBAction func Start(_ sender: Any) {
-        if let buttonTitle = startButton.titleLabel?.text {
-            switch buttonTitle {
-                case buttonTextStart:
-                    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-                    timer.fire()
+        switch startButton.titleLabel?.text {
+        case .some(buttonTextStart):
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+            timer.fire()
 
-                    startButton.setTitle(buttonTextStop, for: .normal)
-            default: break
-            }
+            startButton.setTitle(buttonTextStop, for: .normal)
+        default: break
         }
 
     }
