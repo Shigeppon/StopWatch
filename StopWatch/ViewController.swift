@@ -37,6 +37,7 @@ class ViewController: UIViewController {
 
         updateDisplay()
         startButton.setTitle(buttonTextStart, for: .normal)
+        display.font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: 0.1)
     }
 
     override func didReceiveMemoryWarning() {
