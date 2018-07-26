@@ -54,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         updateDisplay()
         startButton.setTitle(buttonTextStart, for: .normal)
-        display.font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: 0.1)
+        display.font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: UIFont.Weight(rawValue: 0.1))
 
         tableView.estimatedRowHeight = 20
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 
-    func update() {
+    @objc func update() {
         misec += 1
 
         if misec == 100 {
@@ -105,7 +105,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
 
         cell.textLabel!.text = resultList[indexPath.row]
-        cell.textLabel!.font = UIFont.monospacedDigitSystemFont(ofSize: 16, weight: 0.1)
+        cell.textLabel!.font = UIFont.monospacedDigitSystemFont(ofSize: 16, weight: UIFont.Weight(rawValue: 0.1))
         
         return cell
 
